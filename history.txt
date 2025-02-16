@@ -1,0 +1,288 @@
+yasya@Yaroslavas-MacBook-Pro: ~/repo
+$ mkdir HW3                                                          [20:30:23]
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo
+$ cd HW3                                                             [20:30:39]
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3
+$ git init                                                           [20:30:45]
+Initialized empty Git repository in /Users/yasya/repo/HW3/.git/
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ echo "First file" > file1.txt                                      [20:30:51]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main!
+$ git add file1.txt                                                  [20:30:59]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main!
+$ git commit -m "Add file1.txt"                                      [20:31:05]
+
+[main (root-commit) fb35958] Add file1.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ echo "Second file" > file2.txt                                     [20:31:10]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main!
+$ git add file2.txt                                                  [20:31:14]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main!
+$ git commit -m "Add file2.txt"                                      [20:31:17]
+
+[main 30df6ff] Add file2.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ echo "Update first file" >> file1.txt                              [20:31:21]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main!
+$ git add file1.txt                                                  [20:31:25]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main!
+$ git commit -m "Update file1.txt"                                   [20:31:29]
+
+[main bc03f7a] Update file1.txt
+ 1 file changed, 1 insertion(+)
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git remote -v                                                      [20:31:33]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git remote add origin git@github.com:niancat286/Hw3_3.2.1.git      [20:31:46]
+git branch -M main
+git push -u origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 11 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (9/9), 745 bytes | 745.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:niancat286/Hw3_3.2.1.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git remote -v                                                      [20:32:43]
+
+origin	git@github.com:niancat286/Hw3_3.2.1.git (fetch)
+origin	git@github.com:niancat286/Hw3_3.2.1.git (push)
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ echo "New change" >> file1.txt                                     [20:33:13]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main!
+$ git add file1.txt                                                  [20:33:29]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main!
+$ git commit -m "New change in main"                                 [20:33:33]
+
+[main 1fcfe56] New change in main
+ 1 file changed, 1 insertion(+)
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git push origin main:main_for_review                               [20:33:37]
+
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 11 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 310 bytes | 310.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'main_for_review' on GitHub by visiting:
+remote:      https://github.com/niancat286/Hw3_3.2.1/pull/new/main_for_review
+remote: 
+To github.com:niancat286/Hw3_3.2.1.git
+ * [new branch]      main -> main_for_review
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git pull origin main                                               [20:33:46]
+
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 961 bytes | 320.00 KiB/s, done.
+From github.com:niancat286/Hw3_3.2.1
+ * branch            main       -> FETCH_HEAD
+   bc03f7a..d569ba5  main       -> origin/main
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+FAIL
+
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git config pull.rebase false                                       [20:40:11]
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git pull origin main                                               [20:40:29]
+
+From github.com:niancat286/Hw3_3.2.1
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ main.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 main.txt
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git pull origin main_for_review                                    [20:40:39]
+
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 984 bytes | 328.00 KiB/s, done.
+From github.com:niancat286/Hw3_3.2.1
+ * branch            main_for_review -> FETCH_HEAD
+   1fcfe56..84e9318  main_for_review -> origin/main_for_review
+Merge made by the 'ort' strategy.
+ main_for_review.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 main_for_review.txt
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git log --oneline --graph --all                                    [20:40:49]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git branch -r                                                      [20:41:02]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git branch -a                                                      [20:41:22]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git push origin --delete main_for_review                           [20:41:29]
+
+To github.com:niancat286/Hw3_3.2.1.git
+ - [deleted]         main_for_review
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git branch -r                                                      [20:41:45]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git checkout -b develop                                            [20:41:50]
+
+Switched to a new branch 'develop'
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop
+$ echo "Develop feature" > develop.txt                               [20:42:07]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop!
+$ git add develop.txt                                                [20:42:14]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop!
+$ git commit -m "Add develop feature"                                [20:42:18]
+
+[develop 8a500e6] Add develop feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 develop.txt
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop
+$ git push -u origin develop                                         [20:42:22]
+
+Enumerating objects: 17, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 11 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 1.91 KiB | 1.91 MiB/s, done.
+Total 13 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), done.
+remote: 
+remote: Create a pull request for 'develop' on GitHub by visiting:
+remote:      https://github.com/niancat286/Hw3_3.2.1/pull/new/develop
+remote: 
+To github.com:niancat286/Hw3_3.2.1.git
+ * [new branch]      develop -> develop
+branch 'develop' set up to track 'origin/develop'.
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop
+$ git branch -vv                                                     [20:42:26]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop
+$ echo "Another feature" >> develop.txt                              [20:42:43]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop!
+$ git add develop.txt                                                [20:42:54]
+
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop!
+$ git commit -m "Update develop feature"                             [20:42:57]
+
+[develop 23f154b] Update develop feature
+ 1 file changed, 1 insertion(+)
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop
+$ git push                                                           [20:43:10]
+
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 11 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 308 bytes | 308.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:niancat286/Hw3_3.2.1.git
+   8a500e6..23f154b  develop -> develop
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 develop
+$ git checkout main                                                  [20:43:15]
+
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git merge develop                                                  [20:44:01]
+
+Updating dd2269f..23f154b
+Fast-forward
+ develop.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 develop.txt
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git push origin main                                               [20:44:05]
+
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:niancat286/Hw3_3.2.1.git
+   d569ba5..23f154b  main -> main
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git branch -d develop                                              [20:44:11]
+
+Deleted branch develop (was 23f154b).
+ 
+yasya@Yaroslavas-MacBook-Pro: ~/repo/HW3 main
+$ git push origin --delete develop                                   [20:44:15]
+
+To github.com:niancat286/Hw3_3.2.1.git
+ - [deleted]         develop
+ 
